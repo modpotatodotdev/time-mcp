@@ -20,7 +20,19 @@ Returns structured time data for grounding timestamp queries:
 
 ## Installation
 
-Add to your MCP client configuration:
+### From crates.io
+
+```bash
+cargo install time-mcp-server
+```
+
+### From source
+
+```bash
+cargo install --path .
+```
+
+### MCP client configuration
 
 ```json
 {
@@ -30,12 +42,6 @@ Add to your MCP client configuration:
     }
   }
 }
-```
-
-Or install from source:
-
-```bash
-cargo install --path .
 ```
 
 ## Development
