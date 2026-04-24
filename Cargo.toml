@@ -1,0 +1,15 @@
+[package]
+name = "time-mcp-server"
+version = "0.1.0"
+edition = "2024"
+description = "A super basic MCP server that exposes current time information"
+license = "MIT"
+
+[dependencies]
+rmcp = { version = "1.5", features = ["server", "transport-io"] }
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+chrono = "0.4"
+serde = { version = "1", features = ["derive"] }
+anyhow = "1"
+tracing = "0.1"
+tracing-subscriber = "0.3"
