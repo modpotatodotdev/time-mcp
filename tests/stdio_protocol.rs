@@ -36,7 +36,7 @@ struct Server {
 
 impl Server {
     fn spawn() -> Self {
-        let mut child = Command::new(env!("CARGO_BIN_EXE_time-mcp-server"))
+        let mut child = Command::new(env!("CARGO_BIN_EXE_time-mcp"))
             .stdin(Stdio::piped())
             .stdout(Stdio::piped())
             .stderr(Stdio::null())
@@ -105,7 +105,7 @@ fn initialize_reports_the_server_identity_and_tools_capability() {
     let result = server.initialize("2025-11-25");
 
     assert_eq!(result["protocolVersion"], "2025-11-25");
-    assert_eq!(result["serverInfo"]["name"], "time-mcp-server");
+    assert_eq!(result["serverInfo"]["name"], "time-mcp");
     assert_eq!(result["serverInfo"]["version"], env!("CARGO_PKG_VERSION"));
     assert_eq!(result["serverInfo"]["title"], "Time MCP Server");
     assert!(result["capabilities"]["tools"].is_object());
@@ -228,7 +228,7 @@ fn answers_server_discover_for_the_stateless_revision() {
     assert!(result["capabilities"]["tools"].is_object());
     assert_eq!(
         result["_meta"]["io.modelcontextprotocol/serverInfo"]["name"],
-        "time-mcp-server"
+        "time-mcp"
     );
 }
 
