@@ -93,10 +93,10 @@ jobs:
 
           # Update any hardcoded version references in README / docs
           find . -type f \( -name "*.md" -o -name "*.rs" \) ! -path "./target/*" ! -path "./.git/*" | while read -r f; do
-            # Package name references like time-mcp-server = "x.x.x"
-            sed -i -E "s/(time-mcp-server[[:space:]]*=[[:space:]]*\")[^\"]+/\1$NEW_VERSION/g" "$f" 2>/dev/null || true
+            # Package name references like time-mcp = "x.x.x"
+            sed -i -E "s/(time-mcp[[:space:]]*=[[:space:]]*\")[^\"]+/\1$NEW_VERSION/g" "$f" 2>/dev/null || true
             # Version strings in docs
-            sed -i -E "s/time-mcp-server-[0-9]+\.[0-9]+\.[0-9]+/time-mcp-server-$NEW_VERSION/g" "$f" 2>/dev/null || true
+            sed -i -E "s/time-mcp-[0-9]+\.[0-9]+\.[0-9]+/time-mcp-$NEW_VERSION/g" "$f" 2>/dev/null || true
             # Tag references in URLs
             sed -i -E "s|(/releases/download/v)[0-9]+\.[0-9]+\.[0-9]+|\1$TAG_VERSION|g" "$f" 2>/dev/null || true
           done

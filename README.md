@@ -1,4 +1,4 @@
-# time-mcp-server
+# time-mcp
 
 A minimal [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server written in Rust that exposes the current local time.
 
@@ -25,7 +25,7 @@ Returns structured time data for grounding timestamp queries. It is read-only an
 ### From crates.io
 
 ```bash
-cargo install time-mcp-server
+cargo install time-mcp
 ```
 
 ### From source
@@ -36,7 +36,7 @@ cargo install --path .
 
 ## Client configuration
 
-The server is launched over stdio with the `time-mcp-server` binary. Make sure it is on your `PATH` (for example, after `cargo install`).
+The server is launched over stdio with the `time-mcp` binary. Make sure it is on your `PATH` (for example, after `cargo install`).
 
 ### Generic MCP client
 
@@ -44,7 +44,7 @@ The server is launched over stdio with the `time-mcp-server` binary. Make sure i
 {
   "mcpServers": {
     "time": {
-      "command": "time-mcp-server"
+      "command": "time-mcp"
     }
   }
 }
@@ -60,7 +60,7 @@ Add to `opencode.json` (project) or your global opencode config:
   "mcp": {
     "time": {
       "type": "local",
-      "command": ["time-mcp-server"],
+      "command": ["time-mcp"],
       "enabled": true
     }
   }
@@ -72,14 +72,14 @@ Check with `opencode mcp list`.
 ### Codex
 
 ```bash
-codex mcp add time -- time-mcp-server
+codex mcp add time -- time-mcp
 ```
 
 This writes the following to `~/.codex/config.toml`:
 
 ```toml
 [mcp_servers.time]
-command = "time-mcp-server"
+command = "time-mcp"
 ```
 
 Check with `codex mcp list`.
@@ -87,7 +87,7 @@ Check with `codex mcp list`.
 ### pi
 
 ```bash
-pi mcp add time -- time-mcp-server
+pi mcp add time -- time-mcp
 ```
 
 This writes the following to `~/.pi/agent/mcp.json`:
@@ -96,7 +96,7 @@ This writes the following to `~/.pi/agent/mcp.json`:
 {
   "mcpServers": {
     "time": {
-      "command": "time-mcp-server"
+      "command": "time-mcp"
     }
   }
 }
